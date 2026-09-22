@@ -45,7 +45,8 @@ function renderGames() {
 	gameGrid.innerHTML = '';
 
 	games.forEach((game, index) => {
-		const imageUrl = `${STEAM_CDN_BASE}/${game.appId}/library_600x900_2x.jpg`;
+		// Se existir customCover usa ela, se não, usa o padrão do CDN do AppID
+		const imageUrl = game.customCover || `${STEAM_CDN_BASE}/${game.appId}/library_600x900_2x.jpg`;
 		const achievementUrl = `${TSA_BASE_URL}/${game.slug}/achievements`;
 
 		const cardContainer = document.createElement('div');
