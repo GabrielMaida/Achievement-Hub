@@ -1,17 +1,107 @@
 [
-  {
-    "name": "Red Dead Redemption 2",
-    "slug": "Red-Dead-Redemption-2",
-    "appId": "1174180"
-  },
-  {
-    "name": "The Darkness II",
-    "slug": "The-Darkness-II",
-    "appId": "67370"
-  },
-  {
-    "name": "Divinity: Original Sin - Enhanced Edition",
-    "slug": "Divinity-Original-Sin-Enhanced-Edition",
-    "appId": "373420"
-  }
+	{
+		"name": "Dishonored",
+		"slug": "Dishonored",
+		"appId": "205100"
+	},
+	{
+		"name": "Game Dev Tycoon",
+		"slug": "Game-Dev-Tycoon",
+		"appId": "239820"
+	},
+	{
+		"name": "12 is Better Than 6",
+		"slug": "12-is-Better-Than-6",
+		"appId": "416680"
+	},
+	{
+		"name": "LEGO The Hobbit",
+		"slug": "LEGO-The-Hobbit",
+		"appId": "267060"
+	},
+	{
+		"name": "Grand Theft Auto IV: The Complete Edition",
+		"slug": "Grand-Theft-Auto-IV-The-Complete-Edition",
+		"appId": "12210"
+	},
+	{
+		"name": "The Elder Scrolls V: Skyrim Special Edition",
+		"slug": "The-Elder-Scrolls-V-Skyrim-Special-Edition",
+		"appId": "489830"
+	},
+	{
+		"name": "PAYDAY 2",
+		"slug": "PAYDAY-2",
+		"appId": "218620"
+	},
+	{
+		"name": "Hogwarts Legacy",
+		"slug": "Hogwarts-Legacy",
+		"appId": "990080"
+	},
+	{
+		"name": "Battlefield 1",
+		"slug": "Battlefield-1",
+		"appId": "1238840"
+	},
+	{
+		"name": "Cell to Singularity - Evolution Never Ends",
+		"slug": "Cell-to-Singularity-Evolution-Never-Ends",
+		"appId": "977400"
+	},
+	{
+		"name": "Jurassic World Evolution",
+		"slug": "Jurassic-World-Evolution",
+		"appId": "648350"
+	},
+	{
+		"name": "Car Mechanic Simulator 2018",
+		"slug": "Car-Mechanic-Simulator-2018",
+		"appId": "645630"
+	},
+	{
+		"name": "Bitburner",
+		"slug": "Bitburner",
+		"appId": "1812820"
+	},
+	{
+		"name": "STAR WARS Jedi: Fallen Order",
+		"slug": "STAR-WARS-Jedi-Fallen-Order",
+		"appId": "1172380"
+	},
+	{
+		"name": "PowerWash Simulator",
+		"slug": "PowerWash-Simulator",
+		"appId": "1290000"
+	},
+	{
+		"name": "The Darkness II",
+		"slug": "The-Darkness-II",
+		"appId": "67370"
+	},
+	{
+		"name": "Divinity: Original Sin - Enhanced Edition",
+		"slug": "Divinity-Original-Sin-Enhanced-Edition",
+		"appId": "373420"
+	},
+	{
+		"name": "Red Dead Redemption 2",
+		"slug": "Red-Dead-Redemption-2",
+		"appId": "1174180"
+	},
+	{
+		"name": "Assassin's Creed Director's Cut Edition",
+		"slug": "Assassins-Creed-Directors-Cut-Edition",
+		"appId": "15170"
+	},
+	{
+		"name": "Penumbra: Overture",
+		"slug": "Penumbra-Overture",
+		"appId": "22180"
+	},
+	{
+		"name": "Undertale",
+		"slug": "Undertale",
+		"appId": "391540"
+	}
 ]
