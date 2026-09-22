@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Achievement Hub</title>
+
+	<script src="https://cdn.tailwindcss.com"></script>
+
+	<script>
+		tailwind.config = {
+			theme: {
+				extend: {
+					colors: {
+						netflix: {
+							black: '#141414',
+							red: '#e50914',
+							darkred: '#b20710',
+							gray: '#333333'
+						}
+					}
+				}
+			}
+		}
+	</script>
+
+	<style>
+		::-webkit-scrollbar { width: 8px; }
+		::-webkit-scrollbar-track { background: #141414; }
+		::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+		::-webkit-scrollbar-thumb:hover { background: #555; }
+	</style>
+</head>
+
+<body class="bg-netflix-black text-gray-200 min-h-screen font-sans selection:bg-netflix-red selection:text-white relative">
+
+	<header class="flex flex-col xl:flex-row justify-between items-center p-5 md:px-10 sticky top-0 z-40 bg-gradient-to-b from-black/95 to-transparent gap-6">
+		<div class="logo whitespace-nowrap flex items-center gap-4">
+			<h1 class="text-3xl font-bold text-white tracking-wide">Achievement<span class="text-netflix-red">Hub</span></h1>
+			
+			<button onclick="openSettings()" title="Configurar API do GitHub" 
+				class="flex items-center gap-1 bg-netflix-gray hover:bg-gray-700 text-gray-300 p-2 rounded transition border border-gray-600">
+				<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+				</svg>
+			</button>
+		</div>
+
+		<div class="w-full flex-1 max-w-6xl">
+			<form id="game-form" class="flex flex-col xl:flex-row gap-3 w-full justify-end">
+				<input type="hidden" id="edit-index" value="-1">
+
+				<input type="text" id="game-name" placeholder="Nome (ex: Divinity: Original Sin)" required
+					class="px-3 py-2 rounded bg-netflix-gray text-white outline-none placeholder-gray-400 focus:ring-2 focus:ring-netflix-red text-sm flex-1 xl:min-w-[350px]">
+
+				<input type="text" id="game-slug" placeholder="Slug TSA (ex: Divinity-Original-Sin)" required
+					class="px-3 py-2 rounded bg-netflix-gray text-white outline-none placeholder-gray-400 focus:ring-2 focus:ring-netflix-red text-sm flex-1 xl:min-w-[300px]">
+
+				<input type="number" id="game-appid" placeholder="AppID (ex: 373420)" required
+					class="px-3 py-2 rounded bg-netflix-gray text-white outline-none placeholder-gray-400 focus:ring-2 focus:ring-netflix-red text-sm w-full xl:w-36">
+
+				<button type="submit" id="submit-btn"
+					class="px-6 py-2 rounded bg-netflix-red text-white font-bold hover:bg-netflix-darkred transition duration-300 text-sm whitespace-nowrap shadow-md">
+					Adicionar
+				</button>
+				
+				<button type="button" id="cancel-btn" onclick="cancelEdit()"
+					class="hidden px-4 py-2 rounded bg-gray-600 text-white font-bold hover:bg-gray-500 transition duration-300 text-sm whitespace-nowrap shadow-md">
+					Cancelar
+				</button>
+			</form>
+		</div>
+	</header>
+
+	<main class="px-5 md:px-10 pb-20 pt-4">
+		<section id="game-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3 md:gap-4">
+		</section>
+	</main>
+
+	<!-- Modal de Configuração da API do GitHub -->
+	<div id="settings-modal" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50 px-4">
+		<div class="bg-[#1f1f1f] p-6 rounded-lg w-full max-w-md shadow-2xl border border-gray-700">
+			<h2 class="text-xl text-white font-bold mb-4">Configuração do GitHub API</h2>
+			<p class="text-xs text-gray-400 mb-4">Insira os dados para salvar o catálogo diretamente no repositório.</p>
+			
+			<div class="flex flex-col gap-3">
+				<label class="text-sm font-medium text-gray-300">Usuário do GitHub</label>
+				<input type="text" id="gh-owner" placeholder="Ex: seu-usuario" class="px-3 py-2 rounded bg-netflix-gray text-white outline-none focus:ring-2 focus:ring-netflix-red text-sm">
+				
+				<label class="text-sm font-medium text-gray-300 mt-2">Nome do Repositório</label>
+				<input type="text" id="gh-repo" placeholder="Ex: achievement-hub" class="px-3 py-2 rounded bg-netflix-gray text-white outline-none focus:ring-2 focus:ring-netflix-red text-sm">
+				
+				<label class="text-sm font-medium text-gray-300 mt-2">Personal Access Token</label>
+				<input type="password" id="gh-token" placeholder="ghp_xxxxxxxxxxxxxxx" class="px-3 py-2 rounded bg-netflix-gray text-white outline-none focus:ring-2 focus:ring-netflix-red text-sm">
+				
+				<div class="flex justify-end gap-3 mt-5">
+					<button onclick="closeSettings()" class="px-4 py-2 rounded bg-gray-600 text-white font-bold hover:bg-gray-500 transition text-sm">Cancelar</button>
+					<button onclick="saveSettings()" class="px-4 py-2 rounded bg-netflix-red text-white font-bold hover:bg-netflix-darkred transition text-sm">Salvar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+
+</html>
