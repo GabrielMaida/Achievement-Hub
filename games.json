@@ -1,5 +1,10 @@
 [
   {
+    "name": "Red Dead Redemption 2",
+    "slug": "Red-Dead-Redemption-2",
+    "appId": "1174180"
+  },
+  {
     "name": "The Darkness II",
     "slug": "The-Darkness-II",
     "appId": "67370"
