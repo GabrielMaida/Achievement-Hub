@@ -92,7 +92,8 @@
   {
     "name": "Assassin's Creed Director's Cut Edition",
     "slug": "Assassins-Creed-Directors-Cut-Edition",
-    "appId": "15100"
+    "appId": "15100",
+    "customCover": "https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/15100/bad9ce55fafbd0f01c7236c5f082d291b3f5b54e/library_capsule.jpg"
   },
   {
     "name": "Penumbra: Overture",
